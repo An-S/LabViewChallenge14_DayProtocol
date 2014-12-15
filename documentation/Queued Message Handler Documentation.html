@@ -1,0 +1,694 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1252">
+<title>Handler f&uuml;r Nachrichten-Queues</title>
+<style>
+
+<!--
+
+/***************************************************/
+
+/* MINIMAL STYLES */
+
+/* The following section defines styles that every HTML Help project should need. */
+
+
+
+/* Specifies White Background color */
+
+body {background-color:#FFFFFF; font-family:Verdana, sans-serif; font-size:8pt; color: #000000;}
+
+
+
+/* The default style of P is red to alert you that you need to apply a style class, such as Body. */
+
+P { margin-top:6.00pt; margin-bottom:6.00pt;}
+
+
+
+BR { font-size:4.00pt; }
+
+
+
+/* Use H1 for all topic headings. */
+
+H1 { margin-top:3.00pt; margin-bottom:3.00pt; font-size:150%; font-weight:bold;  }
+
+
+
+/* Use H2 for second-level headings. */
+
+H2 { margin-top:9.00pt; margin-bottom:3.00pt; font-size:125%; font-weight:bold;  }
+
+
+
+/* Use H3 for third-level headings. */
+
+H3 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use H4 for fourth-level headings. */
+
+H4 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* H5 and H6 have the same definition as H4 because you should not need this level of heading in one topic. If you need to use H5 or H6, consider breaking up your topic into more than one topic. */
+
+H5 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+H6 { margin-top:6.00pt; margin-bottom:3.00pt; font-size:100%; font-weight:bold;  }
+
+
+
+/* Use the Body style class for normal paragraphs. */
+
+P.Body {  }
+
+
+
+/* Use the Anchor style class for graphic references on a line by themselves. */
+
+P.Anchor { font-size:125%;  }
+
+
+
+/* Use the Indent style classes to indent a paragraph. If you need to indent text below a list item, use <br><br> to start the new paragraph within the same set of <li></li> tags. If you need to indent a list within another list, nest the indented list within the first list's set of <ol></ol> or <ul></ul> tags. */
+
+P.Indent1 { margin-left:12.00pt; margin-bottom:3.00pt;  }
+
+P.Indent2 { margin-left:24.00pt; margin-bottom:3.00pt;  }
+
+P.Indent3 { margin-left:36.00pt; margin-bottom:3.00pt;  }
+
+P.Indent4 { margin-left:48.00pt; margin-bottom:3.00pt;  }
+
+P.Indent5 { margin-left:60.00pt; margin-bottom:3.00pt;  }
+
+
+
+/* Use the LI style for all list items. */
+
+LI { margin-top:3.00pt; margin-bottom:3.00pt; }
+
+
+
+/* Use the OL style for numbered lists. You do not have to type the number for each list item in a numbered list. */
+
+OL { margin-left:22.00pt; margin-top:3.00pt; margin-bottom:3.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the OL style for numbered lists. Nested lists will use the bullet types according to the nesting scheme below */
+
+ol ol {list-style-type:lower-alpha}
+
+ol ol ol {list-style-type:decimal}
+
+ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+ol ol ol ol ol ol ol {list-style-type:decimal}
+
+ol ol ol ol ol ol ol ol {list-style-type:lower-alpha}
+
+
+
+
+
+/* Use the EquationNum style class for numbered lists of equations. You do not have to type the number for each list item in a numbered list. */
+
+OL.EquationNum { margin-left:36.00pt; text-indent:0pt; list-style-type: decimal; }
+
+
+
+/* Use the List-abc style class for lettered lists. You do not have to type the letter for each list item in a lettered list. */
+
+OL.List-abc { margin-left:22.00pt; text-indent:0pt; list-style-type:lower-alpha; }
+
+
+
+/* Use the UL style for bulleted lists. You do not have to type the bullet for each list item in a bulleted list. */
+
+UL { margin-left:22.00pt; text-indent:0pt; margin-top:3.00pt; margin-bottom:3.00pt; list-style-type: disc; }
+
+
+
+/* Use the UL style for bulleted lists. Nested lists will use the bullet types according to the nesting scheme below. */
+
+ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul {list-style-image: none;list-style-type: circle}
+
+ul ul ul ul ul ul ul {list-style-image:none;list-style-type:disc}
+
+ul ul ul ul ul ul ul ul ul{list-style-image: none;list-style-type: circle}
+
+
+
+/* Use the List-Box style class for bulleted lists with boxes instead of bullets. You do not have to type the box for each list item in a box list. */
+
+UL.List-Box { list-style-image: none;list-style-type: square}
+
+
+
+Table { font-size:100%; }
+
+
+
+/* Use the Borderless style class for tables that do not need borders, such as for 2-column or 3-column lists with no headings. */
+
+Table.Borderless { border:none; }
+
+
+
+/* Use the Bordered style class for tables that need borders. */
+
+Table.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; border-collapse: collapse; }
+
+
+
+/* Use the TD style for table cells in Borderless or Borderless-Wide tables. */
+
+TD { vertical-align:top; padding:3px; }
+
+
+
+/* Use the Bordered style class for table headings and cells in Bordered or Bordered-Wide tables. */
+
+.Bordered { border-width: 1pt; border-style: solid; border-color: #000000; }
+
+
+
+/* Use the Icon style class for table cells that contain note, caution, warning, or tip icons, or LabVIEW datatype terminals. */
+
+TD.Icon { width:40px; }
+
+
+
+/* Use the TH style for table heading cells in Borderless or Borderless-Wide tables. */
+
+TH { font-weight:bold; padding:3px; }
+
+
+
+/* Use the Left-Align style class for table headings and cells that you want to left align instead of center align. */
+
+.Left-Align { text-align:left; }
+
+
+
+/***************************************************/
+
+/* CHARACTER FORMATS */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* CHARACTER FORMATS Updated to conform with the CSE HTML Validator Pro */
+
+/* The following section defines character formats that every HTML Help project should need. */
+
+
+
+/* Use the Dark-Red format for warnings or cautions. */
+
+.Dark-Red { color: #800000 }
+
+
+
+/* Use the Monospace format for code or syntax examples. */
+
+.Monospace { font-family: Courier New; font-size: 100%; }
+
+
+
+/* Use the Monospace-Bold format for messages and responses that the computer automatically prints to the screen. */
+
+.Monospace-Bold { font-family: Courier New; font-weight: bold; font-size: 100%; }
+
+
+
+/* Use the Monospace-Italic format to denote text that is a placeholder for a word or value that the user must supply. */
+
+.Monospace-Italic { font-family: Courier New; font-style: italic; font-size: 100%; }
+
+
+
+/* small class */
+
+.smallFont { font-size:87.5%; }
+
+
+
+/* Bold class */
+
+.Bold { font-weight: bold; }
+
+
+
+/* Italic class */
+
+.Italic { font-style: italic; }
+
+
+
+/* Use the Platform format to denote a specific platform. */
+
+.Platform { color: #0000FF; font-weight: bold; }
+
+
+
+/* Use the Symbol format for characters not in the Verdana character set. Use this format sparingly. When possible, you should use the correct ASCII code for the symbol or use a graphic to recreate the symbol. */
+
+.Symbol { font-family: Symbol; }
+
+
+
+/* Use the Red-text format to call attention to text that needs  information added or edited by techcomm */
+
+.Red-text {color: #FF0000;}
+
+
+
+/* Use the Green-Underline format for the green defintion in the conventions topic */
+
+.Green-Underline {color: #007700; text-decoration : underline;}
+
+
+
+/* Use the glossButton format for the glossary buttons used in the glossary topic */
+
+.glossButton { font-size:12px; color:black; }
+
+
+
+/* Use for text sections and hyphenated words that should not break at line wraps */
+
+.nobreak{white-space:nowrap}
+
+
+
+/* Use for template instructions. */
+
+.instructions{color:red; font-style:italic}
+
+
+
+/*Use for words and text sections that do not need to be localized */
+
+.DNL { }
+
+
+
+/* The following styles define the color of links. */
+
+a:link { color: #007700 }
+
+a:visited { color: #7F007F }
+
+a:link:hover { color: #FF0000 }
+
+a:link:active { color: #FF0000 }
+
+
+
+/***************************************************
+
+** Forms */
+
+
+
+form { margin-top:0pt; margin-bottom:3pt; color:black; }
+
+select { font-size:100%; color:black; }
+
+
+
+/*******************************************************
+
+** Margins **
+
+** Use these styles for block-level elements inside tables cells or list items where you do not want extra padding at the top or bottom of a cell. */
+
+.noTopMargin { margin-top:0pt;}
+
+.noBottomMargin { margin-bottom:0pt;}
+
+
+
+/***************************************************
+
+** CODE STYLES **
+
+** The following section defines styles that you need to format entire sections of code or syntax examples. If you have just a few words you need to format as a code or syntax example, use the Monospace character format. */
+
+
+
+P.Code { margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code1 { margin-left:12.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code2 { margin-left:24.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+P.Code3 { margin-left:36.00pt; margin-top:3.00pt; margin-bottom:0.00pt; font-family:Courier New;  }
+
+-->
+</style>
+<script type="text/javascript"> // define hyperlinks and function for launching a URL in a browser
+
+var L_trademarks = "http://digital.ni.com/express.nsf/bycode/rdtrad";
+var L_patents = "http://digital.ni.com/express.nsf/bycode/rdlv17";
+var L_walkthrough = "http://digital.ni.com/express.nsf/bycode/DW_QMHde";
+
+function WWW(url) 
+	{
+	var urlWindow;
+	urlWindow = window.open(url, "New", "directories=yes,location=yes,menubar=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes");
+	}
+</script>
+
+</HEAD>
+<body>
+
+<h1>Handler f&uuml;r Nachrichten-Queues</h1>
+
+<p class="Body">Mit dem Entwurfsmuster zur Verarbeitung von Nachrichten in Queues k&ouml;nnen mehrere Programmabschnitte parallel ausgef&uuml;hrt und Daten zwischen den Abschnitten ausgetauscht werden. Jeder Programmabschnitt stellt einen Task wie beispielsweise die Erfassung von Daten dar und ist wie ein Zustandsautomat aufgebaut. Dank dieses Designs k&ouml;nnen Sie jeden Task in Zust&auml;nde unterteilen.</p>
+
+<p class="Body">Der Handler f&uuml;r Nachrichten-Queues ist eine Version des Erzeuger/Verbraucher-Entwurfsmusters, bei dem die Benutzeroberfl&auml;che (Erzeuger) Nachrichten erzeugt und die Tasks (Verbraucher) diese verarbeiten. Beim Handler f&uuml;r Nachrichten-Queues k&ouml;nnen Sie Nachrichten aber auch in der Verbraucherschleife erzeugen.</p>
+
+<p class="Body">Diese Vorlage enth&auml;lt eine Erzeuger- und eine Verbraucherschleife. Sie k&ouml;nnen je nach Bedarf <a href="#add_task">Verbraucherschleifen hinzuf&uuml;gen</a>.</p>
+
+<h2>Systemvoraussetzungen</h2>
+<p class="body">LabVIEW Base, Full oder Professional Development System</p>
+
+<h2>Anwendungsf&auml;lle</h2>
+<p class="Body">Der Handler f&uuml;r Nachrichten-Queues eignet sich f&uuml;r Anwendungen mit mehreren parallel ausgef&uuml;hrten Tasks. Nehmen Sie beispielsweise eine Anwendung, mit der kontinuierlich ein RS-232- und ein analoges Signal erfasst, protokolliert und angezeigt wird. Die Signale treten mit verschiedenen Raten auf. Daher muss die Anwendung zwei parallel ausgef&uuml;hrte Schleifen haben. Des Weiteren ist jede Schleife in folgende Zust&auml;nde unterteilt:</p>
+<ul>
+	<li>Initialisieren der DAQ-Hardware</li>
+	<li>Erfassen der Daten</li>
+	<li>Protokollieren der erfassten Daten</li>
+	<li>Anzeigen der erfassten Daten in einem Signalverlaufsdiagramm</li>
+	<li>Festlegen eines sicheren Hardwarezustands</li>
+	<li>Beenden der Datenerfassung und Herunterfahren der Hardware</li>
+</ul>
+
+<p class="Body">Die Anwendung erfordert eine Benutzeroberfl&auml;che, die auf Eingriffe reagiert. Benutzer sollten also auf Schaltfl&auml;chen klicken k&ouml;nnen, auch wenn die Anwendung einen anderen Befehl ausf&uuml;hrt. Daher wird eine dritte parallele Schleife ben&ouml;tigt, die das Frontpanel kontinuierlich auf Ereignisse &uuml;berwacht. Beispiele w&auml;ren:</p>
+<ul>
+	<li>RS-232-Erfassung starten</li>
+	<li>RS-232-Erfassung stoppen</li>
+	<li>RS-232-Protokollierung aktivieren</li>
+	<li>RS-232-Protokollierung deaktivieren</li>
+	<li>Analoge Datenerfassung starten</li>
+	<li>Analoge Datenerfassung stoppen</li>
+	<li>Protokollierung analoger Daten aktivieren</li>
+	<li>Protokollierung analoger Daten deaktivieren</li>
+</ul>
+
+<p class="Body">Der Handler f&uuml;r Nachrichten-Queues eignet sich als Vorlage f&uuml;r Anwendungen dieser Art.</p>
+
+<h2>&Uuml;berblick</h2> 
+
+<img src="loc_queued_message_handler.gif">
+<p class="Body">Diese Vorlage f&uuml;hrt folgende Schritte wiederholt aus:</p>
+<ol>
+	<li>Ein Benutzer bedient das Frontpanel, woraufhin die Ereignisstruktur in der Schleife zur Ereignisbehandlung eine Nachricht erzeugt. LabVIEW speichert die Nachricht in einer Queue.</li>
+	<li>Die Schleife zur Nachrichtenbehandlung liest eine Nachricht und entfernt sie aus der Queue.</li>
+	<li>Die Nachricht ist ein String, der einem Unterdiagramm der Case-Struktur in der Schleife zur Nachrichtenbehandlung entspricht. Daher wird nach dem Lesen der Nachricht das dazugeh&ouml;rige Unterdiagramm der Case-Struktur ausgef&uuml;hrt. Dieses Unterdiagramm wird <em>Nachrichtendiagramm</em> genannt, da es sich auf eine Nachricht bezieht.</li>
+	<li>Das Nachrichtendiagramm kann eine weitere Nachricht erzeugen, die in der Nachrichten-Queue gespeichert wird.</li>
+</ol>
+
+<p class="Body">Hinweise:</p>
+<ul>
+	<li>Die Schleife zur Ereignisbehandlung ist die Erzeugerschleife. Die Schleife zur Nachrichtenbehandlung ist die Verbraucherschleife. Diese Schleifen werden parallel ausgef&uuml;hrt und sind durch die Nachrichten-Queue miteinander verbunden.</li>
+	<li>Die Nachrichten-Queue ist eine LabVIEW-Queue, in der Nachrichten f&uuml;r die Verarbeitung gespeichert werden. Da die Schleife zur Ereignisbehandlung Nachrichten an diese Queue und nicht direkt an die Schleife zur Nachrichtenbehandlung sendet, kann sie jederzeit Nachrichten erzeugen. Jede Nachricht geh&ouml;rt zu einer Schleife zur Nachrichtenbehandlung.</li>
+	<li>Bei jeder Iteration der Schleife wird die &auml;lteste Nachricht der Queue gelesen und dann das dazugeh&ouml;rige Nachrichtendiagramm ausgef&uuml;hrt. Die Schleife zur Nachrichtenbehandlung verarbeitet zwar Nachrichten prim&auml;r, kann aber auch welche erzeugen.</li>
+	<li>Jede Schleife verarbeitet Fehler mit Hilfe eines schleifenspezifischen Fehlerbehandler-SubVIs. Wenn der Handler f&uuml;r Nachrichten-Queues in der Schleife zur Nachrichtenbehandlung einen Fehler erkennt, zeigt LabVIEW eine Fehlermeldung an.</li>
+	<li>Ihre Anwendung kann mehrere Schleifen zur Nachrichtenbehandlung enthalten. Jede Schleife entspricht einem Task wie die Erfassung oder Protokollierung von Daten.</li>
+	<li>Sehen Sie sich den Daten-Cluster im oben abgebildeten Diagramm an. Dieser Cluster enth&auml;lt Daten, die von jedem Nachrichtendiagramm einer Schleife zur Nachrichtenbehandlung genutzt und bearbeitet werden k&ouml;nnen. In der Vorlage handelt es sich bei dem Cluster um eine Typdefinition (UI Data.ctl). Jede Typdefinition geh&ouml;rt zu einer Schleife zur Nachrichtenbehandlung.</li>
+</ul>
+
+<h2>Ausf&uuml;hren dieser Vorlage</h2>
+<ol>
+	<li>Starten Sie vom <strong>Projekt-Explorer</strong> aus das Haupt-VI &quot;Main.vi&quot;.</li>
+	<li>Klicken Sie auf die Frontpanel-Elemente und sehen Sie sich die vom Element <strong>Anzeige</strong> ausgegebenen Nachrichten an.</li>
+</ol>
+
+<h2>Bearbeiten der Vorlage</h2>
+
+<h3>Bestimmen Ihrer Bed&uuml;rfnisse</h3>
+<p class="Body">Die folgende Tabelle fasst Entscheidungen hinsichtlich des Designs zusammen, die bei der Anpassung dieser Vorlage getroffen werden m&uuml;ssen:</p>
+
+<table class="Bordered">
+	<tr class="Bordered">
+		<th class="Bordered">Entscheidung</th>
+		<th class="Bordered">Beispiel</th>
+		<th class="Bordered">Ausf&uuml;hrliche Informationen</th>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie m&uuml;ssen bestimmen, wie viele Schleifen zur Nachrichtenbehandlung hinzugef&uuml;gt werden sollen. Jede Schleife definiert einen Task, der zusammen mit anderen Tasks parallel ausgef&uuml;hrt wird.</td>
+		<td class="Bordered">Sie haben eine Anwendung, die Daten erfasst und gleichzeitig auf einem Datentr&auml;ger speichert.<br><br>Die Anwendung besteht aus zwei Tasks: Datenerfassung und -protokollierung. Daher ben&ouml;tigen Sie zwei Schleifen zur Nachrichtenbehandlung.
+</td>
+		<td class="Bordered"><a href="#add_task">Erstellen einer Schleife zur Nachrichtenbehandlung</a></td>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie m&uuml;ssen f&uuml;r jede Schleife zur Nachrichtenbehandlung bestimmen, welche Nachrichtendiagramme hinzugef&uuml;gt werden sollen.<br><br>Ein Nachrichtendiagramm ist ein Unterdiagramm der Case-Struktur in der Schleife. Jedes Unterdiagramm entspricht einem m&ouml;glichen Zustand des Tasks. Bestimmen Sie daher die erforderlichen Nachrichtendiagramme basierend auf den Zust&auml;nden eines Tasks.
+</td>
+		<td class="Bordered">Der Task zur Datenerfassung sollte in drei Zust&auml;nde unterteilt werden: Initialisieren, Datenerfassung und Beenden. Erstellen Sie daher diese Nachrichtendiagramme in der Schleife zur Datenerfassung.<br><br>Der Task zur Datenprotokollierung sollte in drei Zust&auml;nde unterteilt werden: Initialisieren, Protokollieren und Schlie&szlig;en. Erstellen Sie daher diese Nachrichtendiagramme in der Schleife zur Datenprotokollierung.
+</td>
+		<td class="Bordered"><a href="#add_diagram">Erstellen eines Nachrichtendiagramms</a></td>
+	</tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie m&uuml;ssen bestimmen, welche Daten von den Nachrichtendiagrammen einer Schleife zur Nachrichtenbehandlung ben&ouml;tigt werden.</td>
+		<td class="Bordered">Jedes Nachrichtendiagramm der Datenerfassungsschleife muss auf eine Hardwarereferenz zugreifen k&ouml;nnen. Diese Referenz muss vom Initialisierungsdiagramm ge&ouml;ffnet werden. Das Datenerfassungsdiagramm erfasst mithilfe der Referenz Daten und das Beendendiagramm schlie&szlig;t die Referenz.</td>
+		<td class="Bordered"><a href="#change_ui_data">Festlegen der Daten f&uuml;r eine Schleife zur Nachrichtenbehandlung</a></td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie m&uuml;ssen bestimmen, wann ein Nachrichtendiagramm ausgef&uuml;hrt werden soll. Ein Nachrichtendiagramm wird ausgef&uuml;hrt, nachdem die Schleife zur Nachrichtenbehandlung die dazugeh&ouml;rige Nachricht erhalten hat. Sie m&uuml;ssen also festlegen, wann die einzelnen Nachrichten an die Schleife gesendet werden sollen. Nachrichten k&ouml;nnen vom Frontpanel oder von einem Nachrichtendiagramm aus gesendet werden.</td>
+		<td class="Bordered">Sie sollten eine Schaltfl&auml;che hinzuf&uuml;gen, &uuml;ber die die Initialisierungsnachricht an die Datenerfassungsschleife gesendet wird.<br><br>Dann muss das Initialisierungsdiagramm die Datenerfassungsnachricht an dieselbe Schleife senden.
+</td>
+		<td class="Bordered"><a href="#add_control">Hinzuf&uuml;gen eines Elements f&uuml;r das Senden einer Nachricht an eine Schleife zur Nachrichtenbehandlung</a> oder <a href="#send_message">Senden einer Nachricht an eine Schleife zur Nachrichtenbehandlung</a>.</td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie m&uuml;ssen bestimmen, ob die Beendennachricht alle Schleifen zur Nachrichtenbehandlung stoppen soll. Das VI &quot;Dequeue Message&quot; (Nachricht aus Queue entfernen) verwendet diese Nachricht, da es eine Schleife zur Nachrichtenbehandlung beenden kann.</td>
+		<td class="Bordered">Alle Schleifen zur Nachrichtenbehandlung sollen mit einer Stoppnachricht beendet werden.</td>
+		<td class="Bordered"><a href="#change_stop_msg">&Auml;ndern der Nachricht, mit der eine Schleife zur Nachrichtenbehandlung beendet wird</a></td></tr>
+	<tr class="Bordered">
+		<td class="Bordered">Sie k&ouml;nnen entscheiden, ob bestimmte Fehler in der Schleife zur Ereignisbehandlung oder der Schleife zur Nachrichtenbehandlung ignoriert werden sollen.</td>
+		<td class="Bordered">So k&ouml;nnten Sie z. B. festlegen, dass Fehler aufgrund von Netzwerk-Timeouts beim Lesen von Nachrichten aus der Queue ignoriert werden sollen.</td>
+		<td class="Bordered"><a href="#ignore_errors">Ignorieren von Fehlern in der Schleife zur Ereignisbehandlung oder der Schleife zur Nachrichtenbehandlung</a></td></tr>
+</table>
+
+<a name="add_task"></a><h3>Erstellen einer Schleife zur Nachrichtenbehandlung</h3>
+<p class="Body">Eine Schleife zur Nachrichtenbehandlung stellt einen Task dar (z. B. Datenerfassung oder -protokollierung), der in der Anwendung parallel zu anderen Tasks ausgef&uuml;hrt wird. Jede Schleife kann in Unter-Tasks aufgeteilt werden, die sich auf Zust&auml;nde beziehen. Schleifen zur Nachrichtenbehandlung bestehen aus folgenden Komponenten:</p>
+<ul>
+	<li>Nachrichten-Queue</li>
+	<li>While-Schleife, die Nachrichten aus der Nachrichten-Queue liest</li>
+	<li>Case-Struktur mit einem Unterdiagramm (Nachrichtendiagramm) f&uuml;r jede m&ouml;gliche Nachricht, die gelesen werden kann. Jede Nachricht entspricht einem Zustand des Tasks.</li>
+	<li>(Optional) Daten, auf die jedes Nachrichtendiagramm der Schleife zugreifen kann</li>
+</ul>
+<p class="Body">Gehen Sie zum Hinzuf&uuml;gen einer Schleife zur Nachrichtenbehandlung wie folgt vor:</p>
+
+<ol>
+	<li>Diese Vorlage enth&auml;lt eine Typdefinition, die den Cluster mit den Referenzen f&uuml;r alle Nachrichten-Queues definiert. Standardm&auml;&szlig;ig enth&auml;lt diese Typdefinition nur eine Queue. Gehen Sie zum Hinzuf&uuml;gen einer zweiten Queue wie folgt vor:
+		<ol>
+			<li>&Ouml;ffnen Sie im <strong>Projekt-Explorer</strong> das VI &quot;Message Queue.lvlib:Create All Message Queues.vi&quot;.</li>
+			<li>Klicken Sie mit der rechten Maustaste auf die Konstante <strong>Alle Nachrichten-Queues</strong> und &ouml;ffnen Sie die Typdefinition:<br><br><img src="loc_open_msg_queue_typedef.png"><br><br>LabVIEW startet den <strong>Element-Editor</strong>.</li>
+			<li>Vergr&ouml;&szlig;ern Sie den Cluster <strong>Nachrichten-Queues</strong>.</li>
+			<li>Kopieren Sie die Queue-Referenz <strong>UI</strong> im Cluster.</li>
+			<li>Geben Sie einen neuen Namen f&uuml;r die Queue-Referenz ein. Zum Beispiel: <br><br><img src="loc_new_task_typedef.png"></li>
+			<li>W&auml;hlen Sie <strong>Datei&raquo;&Auml;nderungen &uuml;bernehmen</strong> und schlie&szlig;en Sie den <strong>Element-Editor</strong>. Die Typdefinition <strong>Nachrichten-Queues</strong> enth&auml;lt nun eine weitere Nachrichten-Queue.</li>
+		</ol>
+	</li>
+	<li>Bearbeiten Sie das VI &quot;Create All Message Queues&quot;, so dass es folgende Schritte ausf&uuml;hren kann:
+		<ul>
+			<li>Anfordern der Nachrichten-Queue-Referenz</li>
+			<li>B&uuml;ndeln der Queue im Cluster <strong>Nachrichten-Queues (Ausgang)</strong></li>
+			<li>(Optional) Senden einer Anfangsnachricht an die neue Schleife.</li>
+		</ul>
+		<br>Der folgende Screenshot zeigt Beispielprogrammcode f&uuml;r die eben erw&auml;hnten Aufgaben:<br><br><img src="loc_create_two_queues.png">
+	</li>		
+	<li>(Optional) Wenn die Schleife auf Daten zugreifen muss, erstellen Sie eine entsprechende Typdefinition.</li>
+	<li>Erstellen Sie im VI &quot;Main.vi&quot; die Schleife zur Nachrichtenbehandlung f&uuml;r den Task:<br><br><img src="loc_new_task_loop.png">
+	
+		<br><br>Hinweise:
+		<ol>
+			<li>In Schritt 2 wurde die Queue-Referenz <strong>Neuer Task</strong> im Cluster <strong>Nachrichten-Queues (Ausgang)</strong> geb&uuml;ndelt. Der abgebildete Programmcode zeigt, wie der Cluster aufgeschl&uuml;sselt und die Queue <strong>Neuer Task</strong> mit der Schleife <strong>Neuer Task</strong> verbunden wird.</li>
+			<li>In Schritt 2 bestand die Option, eine Anfangsnachricht an die Nachrichten-Queue zu senden. Der Code in Schritt 2 zeigt die Anfangsnachricht <span id="Monospace">Initialize</span>. Der hier abgebildete Code zeigt das Nachrichtendiagramm (Initialize), das bei Empfang dieser Nachricht ausgef&uuml;hrt wird.</li>
+			<li>In Schritt 4 bestand die Option, eine Typdefinition zu erstellen. Der abgebildete Programmcode zeigt, wie Sie die Typdefinition <strong>Daten f&uuml;r neuen Task</strong> verbinden, so dass sie von der Schleife benutzt werden kann.</li>			
+			<li>Wenn der neue Task Nachrichten an die <strong>UI</strong>-Queue senden soll, verbinden Sie die UI-Queue-Referenz mit der Schleife <strong>Neuer Task</strong>.</li>
+			<li>Im abgebildeten Diagramm ist die False-Konstante mit dem Bedingungsanschluss der While-Schleife verbunden. Jede Schleife sollte nur von einem Nachrichtendiagramm angehalten werden k&ouml;nnen. Auf diese Weise wird ein unbeabsichtigtes oder unvollst&auml;ndiges Beenden verhindert, da 
+		<ul>
+			<li>der Programmcode zum Beenden erst kurz vor Beenden der Schleife ausgef&uuml;hrt wird.</li>
+			<li>der Programmcode zum Beenden immer vollst&auml;ndig ausgef&uuml;hrt wird.</li>
+		</ul>
+			</li>
+			<li>Wandeln Sie jede Schleife in ein SubVI um, so dass das Blockdiagramm des VIs &quot;Main.vi&quot; kompakt und &uuml;bersichtlich bleibt. Des Weiteren k&ouml;nnen Sie alle SubVIs sowie dazugeh&ouml;rige Hilfs-VIs und Typdefinitionen in einer Projektbibliothek speichern. Das Projekt &quot;Kontinuierliche Messung und Protokollierung&quot; ist ein Beispiel daf&uuml;r, wie Sie diese Vorlage anpassen k&ouml;nnen. &Ouml;ffnen Sie das Beispielprojekt &uuml;ber das Dialogfeld <strong>Projekt erstellen</strong>.</li>
+			<li>Die oben abgebildete Schleife muss nicht mit dem Stoppereignis verbunden werden. Die Schleife der Vorlage f&uuml;hrt &uuml;ber die Verbindung &quot;Stop Event&quot; das VI &quot;Fire User Event - Stop&quot; aus, mit dem die Schleife zur Ereignisbehandlung beendet wird. Dieser Vorgang muss von keiner anderen Schleife ausgef&uuml;hrt werden.</li>
+		</ol>		
+	</li>
+	<li><a href="#add_diagram">F&uuml;gen Sie Nachrichtendiagramme</a> in die Case-Struktur der Schleife zur Nachrichtenbehandlung ein. Um Fehler und unerwartetes Verhalten auszuschlie&szlig;en, sollte jede Schleife folgende Nachrichtendiagramme enthalten:
+		<ol>
+			<li>Ein Nachrichtendiagramm f&uuml;r die Initialisierung des Tasks. Das Diagramm k&ouml;nnte beispielsweise eine Verbindung zu Hardware herstellen, Dateien f&uuml;r die Datenprotokollierung &ouml;ffnen usw.</li>
+			<li>Ein Nachrichtendiagramm, das <a href="#handle_unrecognized">unbekannte Nachrichten verarbeitet</a>.</li>
+			<li>Ein Nachrichtendiagramm, das bei Ausf&uuml;hrung die Nachrichten-Queue freigibt und die Schleife stoppt. Zum Beispiel: <br><br><img src="loc_stop_task.png"><br><br>Per Voreinstellung wird das Diagramm mit der Nachricht <span id="Monospace">Exit</span> ausgel&ouml;st. Sie k&ouml;nnen <a href="#change_stop_msg">diese Einstellung aber &auml;ndern</a>.</li>
+			<li>(Optional) Wenn eine Schleife zur Nachrichtenbehandlung einen Task nicht mehr ausf&uuml;hren aber trotzdem ge&ouml;ffnet bleiben soll (um den Task eventuell neu zu starten), erstellen Sie ein Nachrichtendiagramm, das mit der Funktion &quot;Queue leeren&quot; ausstehende Nachrichten l&ouml;scht .<br><br>In einer Anwendung f&uuml;r kontinuierliche Messungen gibt es beispielsweise die Schaltfl&auml;chen <strong>Messung starten</strong> und <strong>Messung beenden</strong>. Durch Klicken auf <strong>Messung starten</strong> wird die Schleife gestartet. Die kontinuierliche Ausf&uuml;hrung erfolgt durch wiederholtes Senden derselben Nachricht an sich selbst. Wenn Sie in dieser Anwendung auf <strong>Messung beenden</strong> klicken, sollte die Messung gestoppt, die Nachrichten-Queue geleert und die Schleife nicht beendet werden. Wenn Sie die Nachrichten-Queue nicht leeren, l&ouml;st das Klicken auf <strong>Messung beenden</strong> keinerlei Ereignis aus. Die Nachrichten-Queue enth&auml;lt Nachrichten zum Fortsetzen der Messung und jede dieser Nachrichten l&ouml;st eine weitere Nachricht mit demselben Inhalt aus.</li>
+		</ol>	
+	</li>
+	<li>F&uuml;gen Sie der Schleife zur Ereignisbehandlung Programmcode hinzu, mit dem die neue Schleife zur Nachrichtenbehandlung bei einem Fehler oder bei Beenden der Anwendung gestoppt wird. Es soll also das in Schritt 5c erstellte Nachrichtendiagramm ausgef&uuml;hrt werden. F&uuml;gen Sie den Code der Ereignisstruktur und dem Fehler-Case hinzu, siehe Abbildung:<br><br><img src="loc_stop_new_mhl.png"></li>
+	<li><a href="#send_message">Senden Sie Nachrichten an die Schleife</a>.</li>
+</ol>
+
+<a name="add_diagram"></a><h3>Erstellen eines Nachrichtendiagramms</h3>
+<p class="Body">Ein Nachrichtendiagramm ist das Unterdiagramm einer Case-Struktur in einer Schleife zur Nachrichtenbehandlung, das eine bestimmte Nachricht verarbeitet. Es &auml;hnelt einem Zustand im Zustandsautomaten.</p>
+<p class="Body">Ein Nachrichtendiagramm ist ein Unterdiagramm in einer Case-Struktur, das mit einem String beschriftet ist. Es wird ausgef&uuml;hrt, wenn die Schleife zur Nachrichtenbehandlung eine Nachricht empf&auml;ngt, die dieser Beschriftung entspricht.</p>
+<p class="Body">Ein Nachrichtendiagramm wird auf folgende Weise erstellt:</p>
+<ol>
+	<li>F&uuml;gen Sie der Case-Struktur in der Schleife zur Nachrichtenbehandlung, die den Task darstellt, ein Unterdiagramm hinzu.
+	
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_tip.png"></td><td><strong>Hinweis</strong>&nbsp;&nbsp;	Wenn Sie der Schleife dieser Vorlage ein Nachrichtendiagramm hinzuf&uuml;gen, k&ouml;nnen Sie den Case &quot;---Copy This Frame---&quot; kopieren, um die vorhandenen Daten- und Fehlerverbindungen zu &uuml;bernehmen.</td></tr></table>
+	
+</li>
+	<li>Geben Sie im Case-Selektor den Namen der Nachricht ein, die dieses Unterdiagramm ausl&ouml;sen soll. So wird beispielsweise das folgende Nachrichtendiagramm ausgef&uuml;hrt, wenn LabVIEW den String <span id="Monospace">Neue Nachricht</span> aus der Nachrichten-Queue liest:<br><br><img src="loc_new_message_diagram.png"></li>
+	<li>F&uuml;gen Sie Programmcode ein, der nach Empfang dieser Nachricht ausgef&uuml;hrt werden soll. Beachten Sie dabei folgende Richtlinien:
+		<ul>
+			<li>Verwenden Sie f&uuml;r den Zugriff und die Bearbeitung von Task-Daten die Funktionen &quot;Nach Namen aufschl&uuml;sseln&quot; und &quot;Nach Namen b&uuml;ndeln&quot;:<br><br><img src="loc_access_task_data.png"></li>
+			<li>Um sicherzustellen, dass keine Fehler unbeachtet bleiben, sollten Sie mit der Funktion &quot;Fehler zusammenfassen&quot; Fehler aller Funktionen im Unterdiagramm zusammenfassen.</li>
+			<li>Verbinden Sie den Eingangstunnel <strong>Nachrichtendaten</strong> mit der Funktion &quot;Variant nach Daten&quot;, um auf Nachrichtendaten zugreifen zu k&ouml;nnen:<br><br><img src="loc_convert_variant.png"></li>
+			<li>Senden Sie mit dem VI &quot;Enqueue Message&quot; Nachrichten an eine Nachrichten-Queue.</li>
+		</ul>	
+	</li>
+	<li><a href="#send_message">Senden Sie eine Nachricht</a> an die Schleife, um das Nachrichtendiagramm auszuf&uuml;hren. Die Nachricht muss der Beschriftung des Diagramms entsprechen, die Sie in Schritt 2 festgelegt haben.</li>
+</ol>
+
+<a name="change_ui_data"></a><h3>Festlegen der Daten f&uuml;r eine Schleife zur Nachrichtenbehandlung</h3>
+<p class="Body">In der Vorlage ist <strong>UI Data.ctl</strong> die Typdefinition mit den Daten, auf welche die Schleife zur Nachrichtenbehandlung Zugriff hat:</p>
+
+<img src="loc_ui_data.png">
+
+<p class="Body">Passen Sie diese Typdefinition Ihrer Anwendung an. F&uuml;gen Sie der Typdefinition beispielsweise ein boolesches Element hinzu, wenn mehrere Nachrichtendiagramme in einer Schleife dasselbe boolesche Element bearbeiten m&uuml;ssen.</p>
+<p class="Body">Bei mehreren Schleifen m&uuml;ssen Sie f&uuml;r jede Schleife eine Typdefinition erstellen. Auf diese Weise werden Fehler verhindert, da eine Schleife nicht auf die Daten von anderen Schleifen zugreifen kann.</p>
+
+<a name="add_control"></a><h3>Hinzuf&uuml;gen eines Elements f&uuml;r das Senden einer Nachricht an eine Schleife zur Nachrichtenbehandlung</h3>
+
+<ol>
+	<li>F&uuml;gen Sie ein Element auf dem Frontpanel ein.</li>
+	<li>(Optional) Wenn ein Nachrichtendiagramm dieses Element programmatisch bearbeiten soll, <a href="#bundle_control">b&uuml;ndeln Sie die Elementreferenz</a> in der Typdefinition f&uuml;r diese Schleife.</li>
+	<li>F&uuml;gen Sie der Ereignisstruktur der Schleife zur Ereignisbehandlung einen Ereignis-Case hinzu.</li>
+	<li>Konfigurieren Sie das Ereignis so, dass es ausgel&ouml;st wird, wenn sich der Wert der neuen Schaltfl&auml;che &auml;ndert:<br><br><img src="loc_value_change_event.png"></li>
+	<li>Klicken Sie auf <strong>OK</strong>. LabVIEW erstellt einen Ereignis-Case in der Ereignisstruktur.</li>
+	<li>Ziehen Sie den Blockdiagrammanschluss des neuen Elements in den Ereignis-Case.</li>
+	<li>F&uuml;gen Sie dem Case Programmcode hinzu, mit dem <a href="#send_message">eine Nachricht an eine Schleife gesendet wird</a>.</li>
+</ol>
+
+<a name="send_message"></a><h3>Senden einer Nachricht an eine Schleife zur Nachrichtenbehandlung</h3>
+<p class="Body">Nachrichten sind Strings, die eine Schleife zur Ausf&uuml;hrung eines Nachrichtendiagramms anweisen. Sie werden von der Schleife zur Ereignisbehandlung erstellt und in der Nachrichten-Queue gespeichert. Bei jeder Iteration der Schleife zur Nachrichtenbehandlung wird die &auml;lteste Nachricht der Queue gelesen und dann das dazugeh&ouml;rige Nachrichtendiagramm ausgef&uuml;hrt.</p>
+
+<p class="Body">Gehen Sie zum Senden einer Nachricht an eine Schleife wie folgt vor:</p>
+<ol>
+	<li>Entscheiden Sie, welcher Teil der Anwendung die Nachricht an welche Schleife senden soll. Nachrichten k&ouml;nnen von der Schleife zur Ereignisbehandlung oder von einem Nachrichtendiagramm gesendet werden.</li>
+	<li>Entscheiden Sie, welches Nachrichtendiagramm nach Empfang der Nachricht ausgef&uuml;hrt werden soll. Stellen Sie sicher, dass es das Diagramm gibt und es den gleichen Namen wie die Nachricht hat, die gesendet werden soll. Wenn das Diagramm noch nicht vorhanden ist, <a href="#add_diagram">erstellen Sie es</a>.</li>
+	<li>Bestimmen Sie im VI &quot;Main&quot; die Verbindung, die die Nachrichten-Queue der empfangenden Schleife darstellt. Greifen Sie auf die Verbindung zu, indem Sie den Cluster <strong>Nachrichten-Queues (Ausgang)</strong> aufschl&uuml;sseln. Dieser Cluster wird vom VI &quot;Create All Message Queues&quot; ausgegeben. &quot;Main.vi&quot; enth&auml;lt bereits den folgenden Code, der die UI-Queue-Referenz aufschl&uuml;sselt: <br><br><img src="loc_message_queue_wire.png"> <br><br>Erweitern Sie die Funktion &quot;Nach Namen aufschl&uuml;sseln&quot;, um auf die Verbindungen der Nachrichten-Queues f&uuml;r alle Schleifen zur Nachrichtenbehandlung zuzugreifen.</li>
+	<li>Erstellen Sie in dem Abschnitt der Anwendung, in dem die Nachricht gesendet werden soll, folgenden Programmcode:<br><br><img src="loc_enqueue_generic_message.png"><br><br><span id="Monospace">Nachricht</span> ist der Text, der dem in Schritt 2 festgelegten Nachrichtendiagramm entspricht. &quot;Nachrichten-Queue (Referenz)&quot; ist die in Schritt 3 festgelegte Verbindung.
+	<table class="Borderless"><tr><td class="Icon"><img src="noloc_note.png"></td><td><strong>Hinweis</strong>&nbsp;&nbsp;Sie k&ouml;nnen auf das VI &quot;Enqueue Message&quot; vom <strong>Projekt-Explorer</strong> aus oder &uuml;ber die Schnelleinf&uuml;geliste zugreifen.</td></tr></table>
+	</li>
+	<li>(Optional) Wenn die Nachricht eine hohe Priorit&auml;t haben soll, verbinden Sie eine TRUE-Konstante mit dem Eingang <strong>Nachricht mit Priorit&auml;t?</strong> des VIs &quot;Enqueue Message&quot;:<br><br><img src="loc_enqueue_priority_message.png"><br><br>Nachrichten mit hoher Priorit&auml;t sind in der Regel f&uuml;r Notstoppsituationen reserviert. Diese Nachrichten werden an den Anfang der Nachrichten-Queue eingef&uuml;gt. So wird garantiert, dass die Nachricht als n&auml;chstes verarbeitet wird.</li>
+	<li>(Optional) Senden Sie Daten mit der Nachricht, indem Sie einen Wert mit dem Eingang <strong>Nachrichtendaten</strong> des VIs &quot;Enqueue Message&quot; verbinden. Dieser Anschluss akzeptiert alle Datentypen. Mit dem folgenden Programmcode wird z. B. eine Flie&szlig;kommazahl doppelter Genauigkeit zusammen mit der Nachricht gesendet:<br><br><img src="loc_enqueue_message_with_data.png"><br><br>LabVIEW zeigt einen Typumwandlungspunkt am Anschluss an, da der Anschluss vom Typ Variant ist.</li>
+</ol>
+
+<a name="change_stop_msg"></a><h3>&Auml;ndern der Nachricht, mit der eine Schleife zur Nachrichtenbehandlung beendet wird</h3>
+<p class="Body">Nachrichten sind Strings, die nach Bedarf erstellt und ge&auml;ndert werden k&ouml;nnen, ohne eine Typdefinition aktualisieren zu m&uuml;ssen. Die Nachricht <span id="Monospace">Exit</span> dieser Vorlage ist aber im VI &quot;Message Queue.lvlib:Dequeue Message.vi definiert&quot;:</p>
+
+<img src="loc_exit_message.png">
+
+<p class="Body">Wenn Ihre Schleifen nach Empfang einer anderen als die <span id="Monospace">Exit</span>-Nachricht beendet werden sollen, &auml;ndern Sie dieses VI.</p>
+
+<a name="handle_unrecognized"></a><h3>Verarbeiten unbekannter Nachrichten</h3>
+
+<p class="Body">Stellen Sie sicher, dass alle Case-Strukturen in Schleifen zur Nachrichtenbehandlung ein <strong>Standard</strong>-Nachrichtendiagramm enthalten. Der Code in diesem Diagramm wird ausgef&uuml;hrt, wenn Schleifen eine Nachricht lesen, die kein dazugeh&ouml;riges Nachrichtendiagramm hat. <strong>Standard</strong>-Nachrichtendiagramme sind wichtig, da Nachrichten Strings sind, die man w&auml;hrend der Programmierung eingibt, und keine Enum-Werte, die ausgew&auml;hlt werden.</p>
+
+<a name="ignore_errors"></a><h3>Ignorieren von Fehlern in der Schleife zur Ereignisbehandlung und der Schleife zur Nachrichtenbehandlung</h3>
+<p class="Body">Um eine Liste von Fehlern festzulegen, die in der Schleife zur Ereignisbehandlung oder in der Schleife zur Nachrichtenbehandlung vom jeweiligen Ereignisbehandlungs-SubVI ignoriert werden sollen, gehen Sie wie folgt vor: </p>
+
+<ol>
+	<li>&Ouml;ffnen Sie im <strong>Projekt-Explorer</strong> das VI &quot;Error Handler - Event Handling Loop.vi&quot; oder &quot;Error Handler - Message Handling Loop.vi&quot; (je nachdem, f&uuml;r welche Schleife der Fehler ignoriert werden soll) und wechseln Sie zum Blockdiagramm.</li>
+	<li>Suchen Sie die Array-Konstante mit der Beschriftung <strong>Fehler ignorieren (statische Liste)</strong>:<br><br><img src="loc_qmh_ignore_errors.png"></li>
+</ol>
+
+<p class="Body">F&uuml;gen Sie die Fehlercodes der entsprechenden Fehler in das Array ein. Geben Sie pro Array-Element einen Fehlercode an. Die zu ignorierenden Fehler h&auml;ngen von Ihrer Anwendung ab. Wenn Sie beispielsweise die Queue &uuml;ber ein Netzwerk lesen, sollten eventuell Timeout-Fehler verworfen werden.</p>
+
+<p class="Body">Sie k&ouml;nnen auch festlegen, dass Fehler dynamisch w&auml;hrend der Ausf&uuml;hrung ignoriert werden soll, indem Sie ein Array-Bedienelement mit dem Eingang <strong>Fehler ignorieren (Runtime)</strong> des Fehlerbehandler-SubVIs verbinden. Geben Sie pro Array-Element einen Fehlercode an.</p>
+
+<p class="Body">Alle Fehler, die Sie nicht angegeben haben, werden wie regul&auml;re Fehler behandelt. LabVIEW &uuml;bermittelt regul&auml;re Fehler in Form von Fehlernachrichten an die Schleife zur Nachrichtenbehandlung, und dort wird wie jeweils angegeben mit dem Fehler verfahren.</p>
+
+<a name="bundle_control"></a><h3>Aktivieren der programmatischen Bearbeitung von Elementen durch eine Schleife zur Nachrichtenbehandlung</h3>
+<p class="Body">Wenn eine Schleife ein Element programmatisch bearbeiten soll, erstellen Sie eine Referenz auf das Element und b&uuml;ndeln Sie es in der Typdefinition, mit der Daten f&uuml;r die Schleife gespeichert werden. Im Folgenden wird &quot;UI Data.ctl&quot; als Beispel verwendet.</p>
+
+<ol>
+	<li>Erstellen Sie eine Elementreferenz und verschieben Sie diese in das Unterdiagramm &quot;Initialize&quot; der Schleife.</li>
+	<li>&Ouml;ffnen Sie &quot;UI Data.ctl&quot; und vergr&ouml;&szlig;ern Sie den Cluster f&uuml;r die Referenz.</li>
+	<li>Erweitern Sie im Unterdiagramm &quot;Initialize&quot; diesen neuen Anschluss an der Funktion &quot;Nach Namen b&uuml;ndeln&quot; und verbinden Sie die Elementreferenz damit:<br><br><img src="loc_bundle_new_button_ref.png"></li>
+</ol>
+
+<p class="Body">Die Referenz auf dieses Element ist jetzt f&uuml;r alle Nachrichtendiagramme verf&uuml;gbar, die Zugriff auf &quot;UI Data.ctl&quot; haben. Der folgende Programmcode zeigt beispielsweise das Nachrichtendiagramm &quot;Deaktivieren-Schaltfl&auml;che&quot;, das mit der Elementreferenz die Frontpanel-Schaltfl&auml;che deaktiviert und ausgraut.</p>
+
+<img src="loc_disable_new_button.png">
+
+<a name="rel_info">
+<h2>Weitere Informationen</h2></a>
+
+<p class="Body">In der <em>LabVIEW-Hilfe</em>, die in LabVIEW &uuml;ber <strong>Hilfe&raquo;LabVIEW-Hilfe</strong> ge&ouml;ffnet wird, finden Sie weitere Informationen zu den Objekten dieser Vorlage und den in dieser Vorlage angewendeten Architekturen. Sie k&ouml;nnen auch die <strong>Kontexthilfe</strong> zu Hilfe nehmen, um wichtige Informationen zu den einzelnen LabVIEW-Objekten erhalten, wenn Sie Ihren Cursor &uuml;ber die Objekte bewegen. Zum &Ouml;ffnen der <strong>Kontexthilfe</strong> von LabVIEW w&auml;hlen Sie <strong>Hilfe&raquo;Kontexthilfe anzeigen</strong>.</p>
+
+<p class="Body">Das Projekt &quot;Kontinuierliche Messung und Protokollierung&quot; ist ein Beispiel daf&uuml;r, wie Sie diese Vorlage f&uuml;r eine Messanwendung anpassen k&ouml;nnen. &Ouml;ffnen Sie das Beispielprojekt &uuml;ber das Dialogfeld <strong>Projekt erstellen</strong>.</p>
+
+<p class="Body">Auf <a href="javascript:WWW(L_walkthrough)">ni.com</a> erhalten Sie eine Anleitung f&uuml;r diese Vorlage.</p>
+
+<hr>
+<h2>Rechtliche Hinweise</h2>
+<!--Copyright-->
+<p class="Body"><strong>Copyright</strong></p>
+<p class="Body">&copy; 2014 National Instruments. Alle Rechte vorbehalten.</p>
+
+<p class="Body">Gem&auml;&szlig; den Bestimmungen des Urheberrechts darf diese Publikation ohne vorherige schriftliche Zustimmung der Firma National Instruments Corporation weder vollst&auml;ndig noch teilweise vervielf&auml;ltigt oder verbreitet werden, gleich in welcher Form, ob elektronisch oder mechanisch. Das Verbot erfasst u. a. das Fotokopieren, das Aufzeichnen, das Speichern von Informationen in Informationsgewinnungssystemen sowie das Anfertigen von &Uuml;bersetzungen gleich welcher Art.</p>
+
+<p class="Body">National Instruments achtet das geistige Eigentum anderer und fordert seine Nutzer auf, dies ebenso zu tun.  Die Software von National Instruments ist urheberrechtlich und durch andere Rechtsvorschriften zum Schutz geistigen Eigentums gesch&uuml;tzt.  Wenn Sie Software von National Instruments nutzen, um Software oder andere Materialien, die im Eigentum Dritter stehen, zu vervielf&auml;ltigen, d&uuml;rfen Sie Software von National Instruments nur insoweit nutzen, als Sie die betreffenden Materialien nach den jeweils anwendbaren Lizenzbestimmungen oder Rechtsvorschriften vervielf&auml;ltigen d&uuml;rfen.</p>
+
+<p class="Body"><strong>Lizenzvertr&auml;ge von National Instruments und Rechtshinweise von Drittanbietern</strong></p>
+<p class="Body">Lizenzvertr&auml;ge (EULAs) von National Instruments und Rechtshinweise von Drittanbietern befinden sich in folgenden Verzeichnissen:</p>
+<ul>
+<li>Rechtshinweise: <span class="Monospace">&lt;National Instruments&gt;\_Legal Information</span> und <span class="Monospace">&lt;National Instruments&gt;</span>.</li> 
+<li>EULAs: <span class="Monospace">&lt;National Instruments&gt;\Shared\MDF\Legal\license</span></li>
+<li>Informationen zum Hinzuf&uuml;gen von Rechtshinweisen zu Installationsprogrammen, die mithilfe von NI-Produkten erzeugt werden: <span class="Monospace">&lt;National Instruments&gt;\_Legal Information.txt</span></li>
+</ul>
+
+<p><strong>Eingeschr&auml;nkte Rechte der US-Regierung</strong></p>
+<p>F&uuml;r Beh&ouml;rden, Regierungsstellen oder andere Rechtstr&auml;ger der US-Regierung (&quot;Government&quot;) ist die Verwendung, Vervielf&auml;ltigung, Reproduktion, Ver&ouml;ffentlichung, &Auml;nderung, Verbreitung oder &Uuml;bertragung der technischen Daten in diesem Handbuch gem&auml;&szlig; der folgenden Verordnungen der US-Bundesbeh&ouml;rden weiter beschr&auml;nkt: Federal Acquisition Regulation 52.227-14 f&uuml;r zivile Beh&ouml;rden und Defense Federal Acquisition Regulation Supplement Section 252.227-7014 f&uuml;r Milit&auml;rbeh&ouml;rden.</p>
+
+<p><strong>IVI Foundation - Urheberrechtsvermerk</strong></p>
+
+<p><span class="DNL">Content from the IVI specifications reproduced with permission from the IVI Foundation.</span></p>
+
+<p><span class="DNL">The IVI Foundation and its member companies make no warranty of any kind with regard to this material, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The IVI Foundation and its member companies shall not be liable for errors contained herein or for incidental or consequential damages in connection with the furnishing, performance, or use of this material.</span></p>
+
+<!--Trademarks-->
+<p class="Body"><strong>Marken</strong></p>
+
+<p>Besuchen Sie <em><span class="DNL">NI Trademarks and Logo Guidelines</span></em> auf <a href="javascript:WWW(WWW_Trademark)">ni.com/trademarks</a> f&uuml;r weitere Informationen zu Handelsmarken von <span class="DNL">National Instruments</span>.</p>
+
+<p class="Body">Sonstige hierin erw&auml;hnte Produkt- und Firmenbezeichnungen sind Marken oder Handelsnamen der jeweiligen Unternehmen.</p>
+
+<!--Patents-->
+<p class="Body"><strong>Patente</strong></p>
+<p>N&auml;here Informationen &uuml;ber den Patentschutz von Produkten/Technologien von National Instruments finden Sie unter <strong>Hilfe&raquo;Patente</strong> in Ihrer Software, in der Datei <span class="Monospace">patents.txt</span> auf Ihrem Datentr&auml;ger oder unter <em>National Instruments Patent Notice</em> auf der Website <a href="javascript:WWW(WWW_Patents)">ni.com/patents</a>.</p>
+</body>
+</html>
